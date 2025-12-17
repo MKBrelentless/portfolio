@@ -1,136 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Header({ name }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 shadow-md" style={{backgroundColor: '#15400c'}}>
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold" style={{color: '#e87602'}}>{name}</h1>
+          <h1 style={{fontSize: 'clamp(1.2rem, 4vw, 2rem)', fontWeight: 'bold', color: '#e87602'}}>{name}</h1>
           
-          <nav>
+          {/* Desktop Menu */}
+          <nav className="hidden md:block">
             <ul className="flex gap-2">
-              <li><a href="#hero" className="menu-item" style={{
-                color: '#ffffff',
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: '600',
-                fontSize: '1rem',
-                padding: '0.75rem 1.5rem',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                transition: 'all 0.3s ease',
-                border: '2px solid transparent'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#e87602';
-                e.target.style.borderColor = '#e87602';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 4px 15px rgba(232, 118, 2, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.borderColor = 'transparent';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = 'none';
-              }}>Home</a></li>
-              
-              <li><a href="#about" className="menu-item" style={{
-                color: '#ffffff',
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: '600',
-                fontSize: '1rem',
-                padding: '0.75rem 1.5rem',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                transition: 'all 0.3s ease',
-                border: '2px solid transparent'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#e87602';
-                e.target.style.borderColor = '#e87602';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 4px 15px rgba(232, 118, 2, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.borderColor = 'transparent';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = 'none';
-              }}>About</a></li>
-              
-              <li><a href="#services" className="menu-item" style={{
-                color: '#ffffff',
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: '600',
-                fontSize: '1rem',
-                padding: '0.75rem 1.5rem',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                transition: 'all 0.3s ease',
-                border: '2px solid transparent'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#e87602';
-                e.target.style.borderColor = '#e87602';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 4px 15px rgba(232, 118, 2, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.borderColor = 'transparent';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = 'none';
-              }}>Skills</a></li>
-              
-              <li><a href="#projects" className="menu-item" style={{
-                color: '#ffffff',
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: '600',
-                fontSize: '1rem',
-                padding: '0.75rem 1.5rem',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                transition: 'all 0.3s ease',
-                border: '2px solid transparent'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#e87602';
-                e.target.style.borderColor = '#e87602';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 4px 15px rgba(232, 118, 2, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.borderColor = 'transparent';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = 'none';
-              }}>Projects</a></li>
-              
-              <li><a href="#contact" className="menu-item" style={{
-                color: '#ffffff',
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: '600',
-                fontSize: '1rem',
-                padding: '0.75rem 1.5rem',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                transition: 'all 0.3s ease',
-                border: '2px solid transparent'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#e87602';
-                e.target.style.borderColor = '#e87602';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 4px 15px rgba(232, 118, 2, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.borderColor = 'transparent';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = 'none';
-              }}>Contact</a></li>
+              <li><a href="#hero" style={{color: '#ffffff', fontWeight: '600', fontSize: '0.9rem', padding: '0.5rem 1rem', borderRadius: '8px', textDecoration: 'none', transition: 'all 0.3s ease'}} onMouseEnter={(e) => {e.target.style.backgroundColor = '#e87602';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent';}}>Home</a></li>
+              <li><a href="#about" style={{color: '#ffffff', fontWeight: '600', fontSize: '0.9rem', padding: '0.5rem 1rem', borderRadius: '8px', textDecoration: 'none', transition: 'all 0.3s ease'}} onMouseEnter={(e) => {e.target.style.backgroundColor = '#e87602';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent';}}>About</a></li>
+              <li><a href="#services" style={{color: '#ffffff', fontWeight: '600', fontSize: '0.9rem', padding: '0.5rem 1rem', borderRadius: '8px', textDecoration: 'none', transition: 'all 0.3s ease'}} onMouseEnter={(e) => {e.target.style.backgroundColor = '#e87602';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent';}}>Skills</a></li>
+              <li><a href="#projects" style={{color: '#ffffff', fontWeight: '600', fontSize: '0.9rem', padding: '0.5rem 1rem', borderRadius: '8px', textDecoration: 'none', transition: 'all 0.3s ease'}} onMouseEnter={(e) => {e.target.style.backgroundColor = '#e87602';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent';}}>Projects</a></li>
+              <li><a href="#contact" style={{color: '#ffffff', fontWeight: '600', fontSize: '0.9rem', padding: '0.5rem 1rem', borderRadius: '8px', textDecoration: 'none', transition: 'all 0.3s ease'}} onMouseEnter={(e) => {e.target.style.backgroundColor = '#e87602';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent';}}>Contact</a></li>
             </ul>
           </nav>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+            style={{color: '#e87602', fontSize: '1.5rem', background: 'none', border: 'none', cursor: 'pointer'}}
+          >
+            ☰
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <nav className="md:hidden mt-4">
+            <ul className="flex flex-col gap-2">
+              <li><a href="#hero" style={{color: '#ffffff', fontWeight: '600', padding: '0.75rem', display: 'block', borderRadius: '8px', textDecoration: 'none'}} onClick={() => setIsOpen(false)}>Home</a></li>
+              <li><a href="#about" style={{color: '#ffffff', fontWeight: '600', padding: '0.75rem', display: 'block', borderRadius: '8px', textDecoration: 'none'}} onClick={() => setIsOpen(false)}>About</a></li>
+              <li><a href="#services" style={{color: '#ffffff', fontWeight: '600', padding: '0.75rem', display: 'block', borderRadius: '8px', textDecoration: 'none'}} onClick={() => setIsOpen(false)}>Skills</a></li>
+              <li><a href="#projects" style={{color: '#ffffff', fontWeight: '600', padding: '0.75rem', display: 'block', borderRadius: '8px', textDecoration: 'none'}} onClick={() => setIsOpen(false)}>Projects</a></li>
+              <li><a href="#contact" style={{color: '#ffffff', fontWeight: '600', padding: '0.75rem', display: 'block', borderRadius: '8px', textDecoration: 'none'}} onClick={() => setIsOpen(false)}>Contact</a></li>
+            </ul>
+          </nav>
+        )}
       </div>
     </header>
   );

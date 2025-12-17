@@ -28,7 +28,7 @@ export default function Hero({ name, github }) {
       <section id="hero" style={{background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)', minHeight: '85vh', padding: '2rem'}}>
         
         {/* Profile Section - Top Left */}
-        <div style={{display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '3rem'}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap', justifyContent: 'center'}}>
           <img 
             src="/ReTech Founder.JPG" 
             alt="Austine Mukabwa - Founder of Relentless Technologies"
@@ -75,7 +75,7 @@ export default function Hero({ name, github }) {
           </div>
           
           <div>
-            <h1 style={{fontSize: '2.5rem', fontWeight: '800', color: '#15400c', marginBottom: '0.5rem', lineHeight: '1.1'}}>
+            <h1 style={{fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: '800', color: '#15400c', marginBottom: '0.5rem', lineHeight: '1.1', textAlign: 'center'}}>
               {name}
             </h1>
             <div style={{display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem'}}>
@@ -135,8 +135,8 @@ export default function Hero({ name, github }) {
         </div>
 
         {/* Main Content - Centered */}
-        <div style={{maxWidth: '900px', margin: '0 auto', textAlign: 'center'}}>
-          <h2 style={{fontSize: '2.5rem', color: '#e87602', fontWeight: '700', marginBottom: '2rem'}}>
+        <div style={{maxWidth: '900px', margin: '0 auto', textAlign: 'center', padding: '0 1rem'}}>
+          <h2 style={{fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', color: '#e87602', fontWeight: '700', marginBottom: '2rem'}}>
             Areas of Expertise
           </h2>
           
