@@ -107,3 +107,22 @@ html {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0 1rem;
+  }
+  
+  .section-padding {
+    padding: 3rem 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .card {
+    margin: 0 0.5rem;
+  }
+}
