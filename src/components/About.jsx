@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function About({ resume }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <section id="about" className="section-padding section-alt">
       <div style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
         <h2 className="section-title">About Me</h2>
         <div className="card" style={{padding: '3rem', textAlign: 'left'}}>
+          <div style={{textAlign: 'center', marginBottom: '2rem'}}>
+            <button 
+              onClick={() => setIsExpanded(!isExpanded)}
+              style={{
+                backgroundColor: '#e87602',
+                color: '#ffffff',
+                border: 'none',
+                padding: '1rem 2rem',
+                borderRadius: '8px',
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#d66a02'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = '#e87602'}
+            >
+              {isExpanded ? 'Hide Details' : 'Read About Me'}
+            </button>
+          </div>
+          
+          {isExpanded && (
           <div style={{marginBottom: '2.5rem', padding: '1.5rem', background: '#f8f9fa', borderRadius: '12px', border: '2px solid rgba(232, 118, 2, 0.1)'}}>
             <h3 style={{fontSize: '1.3rem', fontWeight: '700', color: '#e87602', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
               🎓 Education
@@ -72,6 +96,7 @@ export default function About({ resume }) {
               Download Resume
             </a>
           </div>
+          )}
         </div>
       </div>
     </section>
