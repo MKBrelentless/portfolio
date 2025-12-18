@@ -10,7 +10,7 @@ export default function Header({ name }) {
           <h1 style={{fontSize: 'clamp(1.2rem, 4vw, 2rem)', fontWeight: 'bold', color: '#e87602'}}>{name}</h1>
           
           {/* Desktop Menu */}
-          <nav className="hidden md:block">
+          <nav className="hidden md:block" aria-label="Main navigation">
             <ul className="flex gap-2">
               <li><a href="#hero" style={{color: '#ffffff', fontWeight: '600', fontSize: '0.9rem', padding: '0.5rem 1rem', borderRadius: '8px', textDecoration: 'none', transition: 'all 0.3s ease'}} onMouseEnter={(e) => {e.target.style.backgroundColor = '#e87602';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent';}}>Home</a></li>
               <li><a href="#about" style={{color: '#ffffff', fontWeight: '600', fontSize: '0.9rem', padding: '0.5rem 1rem', borderRadius: '8px', textDecoration: 'none', transition: 'all 0.3s ease'}} onMouseEnter={(e) => {e.target.style.backgroundColor = '#e87602';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent';}}>About</a></li>
@@ -32,7 +32,7 @@ export default function Header({ name }) {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <nav className="md:hidden mt-4">
+          <nav className="md:hidden mt-4" aria-label="Mobile navigation">
             <ul className="flex flex-col gap-2">
               <li><a href="#hero" style={{color: '#ffffff', fontWeight: '600', padding: '0.75rem', display: 'block', borderRadius: '8px', textDecoration: 'none'}} onClick={() => setIsOpen(false)}>Home</a></li>
               <li><a href="#about" style={{color: '#ffffff', fontWeight: '600', padding: '0.75rem', display: 'block', borderRadius: '8px', textDecoration: 'none'}} onClick={() => setIsOpen(false)}>About</a></li>
