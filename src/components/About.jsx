@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import RetechModal from './RetechModal';
 
 export default function About({ resume }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isRetechModalOpen, setIsRetechModalOpen] = useState(false);
 
   return (
     <section id="about" className="section-padding section-alt">
@@ -54,7 +56,25 @@ export default function About({ resume }) {
           </div>
           
           <p style={{fontSize: '1.1rem', marginBottom: '1.5rem', color: '#15400c', opacity: 0.9}}>
-            I'm <strong>Austine Mukabwa</strong>, a born again, self-driven, passionate and disciplined Computer Scientist from Kenya.
+            I'm <strong>Austine Mukabwa</strong>, founder of ReTech Ltd, a born again, self-driven, passionate and disciplined Computer Scientist from Kenya.
+            <button 
+              onClick={() => setIsRetechModalOpen(true)}
+              style={{
+                backgroundColor: '#e87602',
+                color: '#ffffff',
+                border: 'none',
+                padding: '0.5rem 1rem',
+                borderRadius: '6px',
+                fontSize: '0.9rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                marginLeft: '0.5rem'
+              }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#d66a02'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = '#e87602'}
+            >
+              Click to know more about ReTech
+            </button>
             While I was on my attachment at Masinde Muliro University of science and technology, I was priviledged to attend their <strong>industrial training</strong>.
             I have interacted with most of the modules of Computer Science as described in my the <strong>Recommendation Letter</strong> which is my work experience section. I have had a hands on experience of each module of the course right away from hardware, software, databases, networking and up to system administration.
             I have paid a keen interest to the modules named above and I have all the acquired foundational knowledge and an understanding of most concepts.
@@ -101,6 +121,11 @@ export default function About({ resume }) {
           )}
         </div>
       </div>
+      
+      <RetechModal 
+        isOpen={isRetechModalOpen} 
+        onClose={() => setIsRetechModalOpen(false)} 
+      />
     </section>
   );
 }
