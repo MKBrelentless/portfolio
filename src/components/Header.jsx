@@ -21,13 +21,15 @@ export default function Header({ name }) {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-            style={{color: '#e87602', fontSize: '1.5rem', background: 'none', border: 'none', cursor: 'pointer'}}
-          >
-            ☰
-          </button>
+          <div className="md:hidden" style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+            <span style={{color: '#ffffff', fontWeight: '600', fontSize: '0.9rem'}}>MENU</span>
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              style={{color: '#e87602', fontSize: '1.5rem', background: 'none', border: 'none', cursor: 'pointer'}}
+            >
+              ☰
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
