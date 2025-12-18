@@ -25,10 +25,10 @@ export default function Hero({ name, github }) {
 
   return (
     <>
-      <section id="hero" style={{background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)', minHeight: '85vh', padding: '2rem'}}>
+      <section id="hero" className="container" style={{background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)', minHeight: '100vh', padding: '2rem 1rem'}}>
         
         {/* Profile Section - Top Left */}
-        <div style={{display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap', justifyContent: 'center'}}>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginBottom: '2rem', textAlign: 'center'}}>
           <img 
             src="/ReTech Founder.JPG" 
             alt="Austine Mukabwa - Founder of Relentless Technologies"
@@ -135,27 +135,29 @@ export default function Hero({ name, github }) {
         </div>
 
         {/* Main Content - Centered */}
-        <div style={{maxWidth: '900px', margin: '0 auto', textAlign: 'center', padding: '0 1rem'}}>
+        <div style={{width: '100%', textAlign: 'center', marginTop: '2rem'}}>
           <h2 style={{fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', color: '#e87602', fontWeight: '700', marginBottom: '2rem'}}>
             Areas of Expertise
           </h2>
           
-          <div style={{marginBottom: '3rem', display: 'grid', gap: '1rem'}}>
+          <div style={{marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
             {expertiseAreas.map((expertise, idx) => (
               <div 
                 key={expertise.id}
                 onClick={() => handleExpertiseClick(expertise)}
                 style={{
-                  fontSize: '1.3rem',
+                  fontSize: '1rem',
                   color: '#15400c',
                   fontWeight: '600',
-                  padding: '1rem 2rem',
+                  padding: '1rem',
                   background: 'rgba(232, 118, 2, 0.1)',
-                  borderRadius: '12px',
+                  borderRadius: '10px',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
                   border: '2px solid transparent',
-                  textAlign: 'left'
+                  textAlign: 'left',
+                  width: '100%',
+                  marginBottom: '0.5rem'
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.background = 'rgba(232, 118, 2, 0.2)';
