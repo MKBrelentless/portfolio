@@ -30,6 +30,7 @@ export default function About({ resume }) {
           </div>
           
           {isExpanded && (
+          <>
           <div style={{marginBottom: '2.5rem', padding: '1.5rem', background: '#f8f9fa', borderRadius: '12px', border: '2px solid rgba(232, 118, 2, 0.1)'}}>
             <h3 style={{fontSize: '1.3rem', fontWeight: '700', color: '#e87602', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
               🎓 Education
@@ -96,6 +97,7 @@ export default function About({ resume }) {
               Download Resume
             </a>
           </div>
+          </>
           )}
         </div>
       </div>
