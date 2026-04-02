@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Services from './components/Services'
 import Project from './components/Projects' // fixed: singular
+import Experience from './components/Experience'
 import Skills from './Skills' // assuming Skills.jsx is directly under src
 import Contact from './components/Contact'
 import Testimonials from './components/Testimonials'
@@ -26,6 +27,7 @@ export default function App() {
         <About resume="/resume.pdf" />
         <Services />
         <Project projects={projects} /> {/* matches Project.jsx */}
+        <Experience />
         <Contact email={email} github={github} linkedin={linkedin} phonenumber={phonenumber} />
         <Testimonials />
         <footer className="footer">
