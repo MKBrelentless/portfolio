@@ -160,7 +160,7 @@ export default function Testimonials() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      placeholder="e.g. John Doe"
+                      placeholder="e.g. Austine Mukabwa"
                       style={{
                         width: '100%',
                         padding: '1rem',
