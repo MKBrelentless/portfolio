@@ -12,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@supabase/supabase-js": "^2.93.2",
     "@tailwindcss/postcss": "^4.1.17",
+    "framer-motion": "^12.38.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

@@ -1,30 +1,38 @@
 export const services = [
   {
     id: 1,
-    title: "Full Stack Development",
-    description: "End-to-end web application development using modern technologies like React, Node.js, and cloud platforms.",
+    title: "System Administration",
+    description: "Comprehensive server management and cloud infrastructure solutions focusing on security, scalability, and high performance.",
+    icon: "⚙️",
+    link: "#contact"
+  },
+  {
+    id: 2,
+    title: "Fullstack JavaScript Development",
+    description: "End-to-end web applications built with React and Node.js, delivering seamless user experiences across all devices.",
     icon: "💻",
     link: "#projects"
   },
   {
-    id: 2,
-    title: "AI Integration",
-    description: "Implementing AI and machine learning solutions into web applications for enhanced user experiences.",
-    icon: "🤖",
-    link: "#contact"
-  },
-  {
     id: 3,
-    title: "Networking",
-    description: "I'm a networker skilled in development and maintainance of networks.I do install, monitor and maintain CCTV cameras",
+    title: "Network Administration",
+    description: "Designing and securing robust network infrastructures, including enterprise-grade connectivity and security system integration.",
     icon: "🔗",
     link: "#contact"
   },
   {
     id: 4,
-    title: "Cloud Deployment",
-    description: "Deploying and scaling applications on cloud platforms like AWS, Railway, and other modern hosting solutions.",
-    icon: "☁️",
+    title: "AI Integration",
+    description: "Custom AI and machine learning solutions to automate processes and create intelligent software features.",
+    icon: "🤖",
     link: "#contact"
+  },
+  {
+    id: 5,
+    title: "Graphic Design",
+    description: "Creating stunning visual identities and user interfaces that communicate your brand effectively and beautifully.",
+    icon: "🎨",
+    link: "#projects"
   }
 ];
+

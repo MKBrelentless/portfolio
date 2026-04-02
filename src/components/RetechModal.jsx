@@ -1,72 +1,87 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function RetechModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.8)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      zIndex: 1000,
-      padding: '2rem'
-    }}>
-      <div className="card" style={{
-        maxWidth: '700px',
-        width: '100%',
-        maxHeight: '80vh',
-        overflow: 'auto',
-        padding: '3rem',
-        position: 'relative'
-      }}>
-        <button 
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 1000,
+        padding: '2rem',
+        backdropFilter: 'blur(5px)'
+      }}
+    >
+      <motion.div 
+        initial={{ scale: 0.9, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.9, opacity: 0, y: 20 }}
+        className="card" 
+        style={{
+          maxWidth: '750px',
+          width: '100%',
+          maxHeight: '85vh',
+          overflow: 'auto',
+          padding: '3.5rem',
+          position: 'relative',
+          borderRadius: '28px',
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+        }}
+      >
+        <motion.button 
+          whileHover={{ scale: 1.1, rotate: -90 }}
+          whileTap={{ scale: 0.9 }}
           onClick={onClose}
           style={{
             position: 'absolute',
-            top: '1rem',
-            right: '1rem',
+            top: '1.5rem',
+            right: '1.5rem',
             background: '#e87602',
             border: 'none',
-            fontSize: '2rem',
+            fontSize: '1.5rem',
             color: '#ffffff',
             cursor: 'pointer',
             fontWeight: 'bold',
             zIndex: 1001,
-            width: '40px',
-            height: '40px',
+            width: '44px',
+            height: '44px',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             boxShadow: '0 4px 15px rgba(232, 118, 2, 0.3)',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.backgroundColor = '#15400c';
-            e.target.style.transform = 'scale(1.1)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.backgroundColor = '#e87602';
-            e.target.style.transform = 'scale(1)';
           }}
         >
           ×
-        </button>
+        </motion.button>
         
-        <div style={{textAlign: 'center', marginBottom: '2rem'}}>
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '1rem'}}>
-            <img 
+        <div style={{textAlign: 'center', marginBottom: '3rem'}}>
+          <motion.div 
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', marginBottom: '1.5rem'}}
+          >
+            <motion.img 
               src="/retech logo.png" 
               alt="Relentless Technologies Logo"
+              whileHover={{ rotate: 5, scale: 1.1 }}
               style={{
-                height: '60px',
-                width: 'auto'
+                height: '80px',
+                width: 'auto',
+                filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.1))'
               }}
               onError={(e) => {
                 e.target.style.display = 'none';
@@ -77,100 +92,105 @@ export default function RetechModal({ isOpen, onClose }) {
               display: 'none',
               background: 'linear-gradient(135deg, #15400c 0%, #1a4d0f 100%)',
               color: '#e87602',
-              padding: '0.5rem 1rem',
-              borderRadius: '8px',
-              fontWeight: '700',
-              fontSize: '1.5rem'
+              padding: '0.6rem 1.2rem',
+              borderRadius: '12px',
+              fontWeight: '800',
+              fontSize: '1.8rem'
             }}>
               ReTech
             </span>
-          </div>
-          <h2 style={{fontSize: '2.5rem', fontWeight: '700', color: '#15400c', marginBottom: '0.5rem'}}>
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            style={{fontSize: '2.8rem', fontWeight: '800', color: '#15400c', marginBottom: '0.5rem', letterSpacing: '-0.5px'}}
+          >
             Relentless Technologies Ltd
-          </h2>
-          <p style={{fontSize: '1.2rem', color: '#e87602', fontWeight: '600', marginBottom: '2rem'}}>
-            Graphics & IT Support Firm
-          </p>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            style={{fontSize: '1.25rem', color: '#e87602', fontWeight: '700', marginBottom: '2rem', textTransform: 'uppercase', letterSpacing: '1px'}}
+          >
+            Computer Electronics & IT Support Services
+          </motion.p>
         </div>
 
-        <div style={{marginBottom: '2rem'}}>
-          <h3 style={{fontSize: '1.4rem', fontWeight: '600', color: '#e87602', marginBottom: '1rem'}}>
-            About Our Company
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          style={{marginBottom: '2.5rem'}}
+        >
+          <h3 style={{fontSize: '1.6rem', fontWeight: '700', color: '#e87602', marginBottom: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+            <span>🏢</span> About Our Company
           </h3>
-          <p style={{fontSize: '1.1rem', color: '#15400c', opacity: 0.9, lineHeight: '1.6', marginBottom: '1.5rem'}}>
-            ReTech is currently a Graphics & IT support firm specializing in comprehensive technology solutions 
-            for businesses and individuals. We combine creative design expertise with technical proficiency to 
-            deliver exceptional results.
+          <p style={{fontSize: '1.15rem', color: '#15400c', opacity: 0.9, lineHeight: '1.7', marginBottom: '1.5rem'}}>
+            ReTech is a premier computer electronics and IT support firm specializing in comprehensive technology solutions. While we have a robust graphic design division, our primary focus and expertise lie in hardware infrastructure, network engineering, and professional IT support.
           </p>
-        </div>
+        </motion.div>
 
-        <div style={{marginBottom: '2rem'}}>
-          <h3 style={{fontSize: '1.4rem', fontWeight: '600', color: '#e87602', marginBottom: '1rem'}}>
-            Our Services
-          </h3>
+        <div style={{marginBottom: '2.5rem'}}>
+          <motion.h3 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            style={{fontSize: '1.6rem', fontWeight: '700', color: '#e87602', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem'}}
+          >
+            <span>🛠️</span> Our Solutions
+          </motion.h3>
           <ul style={{listStyle: 'none', padding: 0}}>
-            <li style={{
-              padding: '1rem',
-              marginBottom: '0.75rem',
-              background: '#f8f9fa',
-              borderRadius: '8px',
-              borderLeft: '4px solid #e87602',
-              fontSize: '1rem'
-            }}>
-              <strong>Network Equipment Sales</strong> - Ethernet cables, routers, switches, and networking accessories
-            </li>
-            <li style={{
-              padding: '1rem',
-              marginBottom: '0.75rem',
-              background: '#f8f9fa',
-              borderRadius: '8px',
-              borderLeft: '4px solid #e87602',
-              fontSize: '1rem'
-            }}>
-              <strong>Software Installation</strong> - Professional software setup and configuration services
-            </li>
-            <li style={{
-              padding: '1rem',
-              marginBottom: '0.75rem',
-              background: '#f8f9fa',
-              borderRadius: '8px',
-              borderLeft: '4px solid #e87602',
-              fontSize: '1rem'
-            }}>
-              <strong>Hardware Troubleshooting</strong> - Computer repair and hardware diagnostic services
-            </li>
-            <li style={{
-              padding: '1rem',
-              marginBottom: '0.75rem',
-              background: '#f8f9fa',
-              borderRadius: '8px',
-              borderLeft: '4px solid #e87602',
-              fontSize: '1rem'
-            }}>
-              <strong>Website Creation & Maintenance</strong> - Custom website development and ongoing support
-            </li>
-            <li style={{
-              padding: '1rem',
-              marginBottom: '0.75rem',
-              background: '#f8f9fa',
-              borderRadius: '8px',
-              borderLeft: '4px solid #e87602',
-              fontSize: '1rem'
-            }}>
-              <strong>Graphics Design</strong> - Logo design, marketing materials, and visual branding solutions
-            </li>
+            {[
+              { title: "Network Equipment Sales", desc: "Premium Ethernet cables, routers, switches, and specialized accessories." },
+              { title: "Software Installation", desc: "Expert setup and optimization of professional software suites." },
+              { title: "Hardware Troubleshooting", desc: "Comprehensive repair for computers and mobile devices, including screen replacement and hardware forensics." },
+              { title: "Website Creation & Maintenance", desc: "Enterprise-grade web development and robust ongoing support." },
+              { title: "Graphics Design", desc: "Elite branding, logo architecture, and digital marketing assets." }
+            ].map((service, idx) => (
+              <motion.li 
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7 + (idx * 0.1) }}
+                style={{
+                  padding: '1.25rem',
+                  marginBottom: '1rem',
+                  background: 'rgba(232, 118, 2, 0.03)',
+                  borderRadius: '16px',
+                  borderLeft: '5px solid #e87602',
+                  fontSize: '1.05rem',
+                  boxShadow: '0 2px 10px rgba(0,0,0,0.02)'
+                }}
+              >
+                <strong style={{color: '#15400c'}}>{service.title}</strong> — {service.desc}
+              </motion.li>
+            ))}
           </ul>
         </div>
 
-        <div style={{textAlign: 'center', marginTop: '2rem'}}>
-          <p style={{fontSize: '1rem', color: '#15400c', opacity: 0.8, marginBottom: '1rem'}}>
-            Ready to work with us? Get in touch today!
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          style={{textAlign: 'center', marginTop: '3rem'}}
+        >
+          <p style={{fontSize: '1.1rem', color: '#15400c', opacity: 0.8, marginBottom: '1.5rem', fontWeight: '500'}}>
+            Ready to experience relentless innovation?
           </p>
-          <a href="#contact" className="btn-primary" onClick={onClose}>
-            Contact ReTech
-          </a>
-        </div>
-      </div>
-    </div>
+          <motion.a 
+            whileHover={{ scale: 1.05, boxShadow: '0 10px 20px rgba(232, 118, 2, 0.3)' }}
+            whileTap={{ scale: 0.95 }}
+            href="#contact" 
+            className="btn-primary" 
+            onClick={onClose}
+            style={{padding: '1rem 2.5rem', fontSize: '1.1rem'}}
+          >
+            Partner with ReTech
+          </motion.a>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 }

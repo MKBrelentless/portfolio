@@ -1,13 +1,17 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function SkillDetail({ skill, onClose }) {
   if (!skill) return null;
 
   // Check if this is the Graphics Design section
-  const isGraphicsDesign = skill.title === "Graphics Design";
+  const isGraphicsDesign = skill.title === "Graphic Design";
 
   return (
-    <div 
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       style={{
         position: 'fixed',
         top: 0,
@@ -19,218 +23,158 @@ export default function SkillDetail({ skill, onClose }) {
         alignItems: 'center',
         justifyContent: 'center',
         zIndex: 1000,
-        padding: '2rem'
+        padding: '2rem',
+        backdropFilter: 'blur(5px)'
       }}
       onClick={onClose}
     >
-      <div 
+      <motion.div 
+        initial={{ scale: 0.9, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.9, opacity: 0, y: 20 }}
         className="card" 
         style={{
-          maxWidth: isGraphicsDesign ? '900px' : '600px',
+          maxWidth: isGraphicsDesign ? '900px' : '650px',
           width: '100%',
-          maxHeight: '80vh',
+          maxHeight: '85vh',
           overflow: 'auto',
-          padding: '2.5rem',
-          position: 'relative'
+          padding: '3rem',
+          position: 'relative',
+          borderRadius: '24px',
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        <button 
+        <motion.button 
+          whileHover={{ scale: 1.1, rotate: 90 }}
+          whileTap={{ scale: 0.9 }}
           onClick={onClose}
           style={{
             position: 'absolute',
-            top: '1rem',
-            right: '1rem',
+            top: '1.5rem',
+            right: '1.5rem',
             background: '#e87602',
             border: 'none',
-            fontSize: '2rem',
+            fontSize: '1.5rem',
             color: '#ffffff',
             cursor: 'pointer',
             fontWeight: 'bold',
             zIndex: 1001,
-            width: '40px',
-            height: '40px',
+            width: '44px',
+            height: '44px',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             boxShadow: '0 4px 15px rgba(232, 118, 2, 0.3)',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.backgroundColor = '#15400c';
-            e.target.style.transform = 'scale(1.1)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.backgroundColor = '#e87602';
-            e.target.style.transform = 'scale(1)';
           }}
         >
           ×
-        </button>
+        </motion.button>
         
-        <div style={{textAlign: 'center', marginBottom: '2rem'}}>
-          <div style={{fontSize: '4rem', marginBottom: '1rem'}}>{skill.icon}</div>
-          <h2 style={{fontSize: '2rem', fontWeight: '700', color: '#15400c', marginBottom: '1rem'}}>
+        <div style={{textAlign: 'center', marginBottom: '2.5rem'}}>
+          <motion.div 
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: 'spring', delay: 0.1 }}
+            style={{fontSize: '4rem', marginBottom: '1rem'}}
+          >
+            {skill.icon}
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            style={{fontSize: '2.2rem', fontWeight: '800', color: '#15400c', marginBottom: '1rem'}}
+          >
             {skill.title}
-          </h2>
-          <p style={{fontSize: '1.1rem', color: '#15400c', opacity: 0.8, lineHeight: '1.6'}}>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            style={{fontSize: '1.1rem', color: '#15400c', opacity: 0.8, lineHeight: '1.7'}}
+          >
             {skill.description}
-          </p>
+          </motion.p>
         </div>
 
-        <div style={{marginBottom: '2rem'}}>
-          <h3 style={{fontSize: '1.3rem', fontWeight: '600', color: '#e87602', marginBottom: '1rem'}}>
-            My Works & Projects
+        <div style={{marginBottom: '2.5rem'}}>
+          <h3 style={{fontSize: '1.4rem', fontWeight: '700', color: '#e87602', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+            <span>📂</span> My Works & Projects
           </h3>
           
           {isGraphicsDesign ? (
             <div>
-              <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '2rem'}}>
-                {/* Design Sample Images from Graphics folder */}
-                <div style={{textAlign: 'center'}}>
-                  <img 
-                    src="/Graphics/RG1.png" 
-                    alt="RG1 Design Sample"
-                    style={{
-                      width: '100%',
-                      height: '120px',
-                      objectFit: 'cover',
-                      borderRadius: '8px',
-                      border: '2px solid #e87602',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease'
-                    }}
-                    onClick={() => window.open('/Graphics/RG1.png', '_blank')}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'scale(1.05)';
-                      e.target.style.boxShadow = '0 8px 25px rgba(232, 118, 2, 0.3)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'scale(1)';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                  />
-                  <p style={{fontSize: '0.8rem', color: '#15400c', marginTop: '0.5rem', fontWeight: '500'}}>RG1</p>
-                </div>
-
-                <div style={{textAlign: 'center'}}>
-                  <img 
-                    src="/Graphics/RG3.png" 
-                    alt="RG3 Design Sample"
-                    style={{
-                      width: '100%',
-                      height: '120px',
-                      objectFit: 'cover',
-                      borderRadius: '8px',
-                      border: '2px solid #e87602',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease'
-                    }}
-                    onClick={() => window.open('/Graphics/RG3.png', '_blank')}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'scale(1.05)';
-                      e.target.style.boxShadow = '0 8px 25px rgba(232, 118, 2, 0.3)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'scale(1)';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                  />
-                  <p style={{fontSize: '0.8rem', color: '#15400c', marginTop: '0.5rem', fontWeight: '500'}}>RG3</p>
-                </div>
-
-                <div style={{textAlign: 'center'}}>
-                  <img 
-                    src="/Graphics/RG4.png" 
-                    alt="RG4 Design Sample"
-                    style={{
-                      width: '100%',
-                      height: '120px',
-                      objectFit: 'cover',
-                      borderRadius: '8px',
-                      border: '2px solid #e87602',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease'
-                    }}
-                    onClick={() => window.open('/Graphics/RG4.png', '_blank')}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'scale(1.05)';
-                      e.target.style.boxShadow = '0 8px 25px rgba(232, 118, 2, 0.3)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'scale(1)';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                  />
-                  <p style={{fontSize: '0.8rem', color: '#15400c', marginTop: '0.5rem', fontWeight: '500'}}>RG4</p>
-                </div>
-
-                <div style={{textAlign: 'center'}}>
-                  <img 
-                    src="/Graphics/rg41.png" 
-                    alt="RG41 Design Sample"
-                    style={{
-                      width: '100%',
-                      height: '120px',
-                      objectFit: 'cover',
-                      borderRadius: '8px',
-                      border: '2px solid #e87602',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease'
-                    }}
-                    onClick={() => window.open('/Graphics/rg41.png', '_blank')}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'scale(1.05)';
-                      e.target.style.boxShadow = '0 8px 25px rgba(232, 118, 2, 0.3)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'scale(1)';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                  />
-                  <p style={{fontSize: '0.8rem', color: '#15400c', marginTop: '0.5rem', fontWeight: '500'}}>RG41</p>
-                </div>
-
-                <div style={{textAlign: 'center'}}>
-                  <img 
-                    src="/Graphics/R20.jpg" 
-                    alt="R20 Design Sample"
-                    style={{
-                      width: '100%',
-                      height: '120px',
-                      objectFit: 'cover',
-                      borderRadius: '8px',
-                      border: '2px solid #e87602',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease'
-                    }}
-                    onClick={() => window.open('/Graphics/R20.jpg', '_blank')}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'scale(1.05)';
-                      e.target.style.boxShadow = '0 8px 25px rgba(232, 118, 2, 0.3)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'scale(1)';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                  />
-                  <p style={{fontSize: '0.8rem', color: '#15400c', marginTop: '0.5rem', fontWeight: '500'}}>R20</p>
-                </div>
+              <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.2rem', marginBottom: '2.5rem'}}>
+                {/* Design Sample Images */}
+                {[
+                  // The "Best" / Premium Designs First
+                  { src: "/Graphics/Presentation.png", label: "Premium Presentation" },
+                  { src: "/Graphics/prentation1.png", label: "Corporate Design" },
+                  { src: "/Graphics/LOGOV.png", label: "Vector Logo Design" },
+                  { src: "/Graphics/retechlogo.png", label: "ReTech Brand Identity" },
+                  { src: "/Graphics/repair.png", label: "Service Repair Flyer" },
+                  { src: "/Graphics/RG11.png", label: "RG11 Graphic" },
+                  { src: "/Graphics/RG10.png", label: "RG10 Graphic" },
+                  { src: "/Graphics/RG9.png", label: "RG9 Graphic" },
+                  { src: "/Graphics/RG8.png", label: "RG8 Graphic" },
+                  { src: "/Graphics/RG4.png", label: "RG4 Graphic" },
+                  { src: "/Graphics/rg41.png", label: "RG41 Rendering" },
+                  { src: "/Graphics/RG3.png", label: "RG3 Layout" },
+                  { src: "/Graphics/RG1.png", label: "RG1 Poster" },
+                  { src: "/Graphics/focus.png", label: "Focus Composition" },
+                  { src: "/Graphics/edger.png", label: "Edger Concept" },
+                  { src: "/Graphics/MateDavies (2).png", label: "Mate Davies Project" },
+                  { src: "/Graphics/profile.png", label: "Profile Portrait Design" },
+                  { src: "/Graphics/R20.jpg", label: "R20 Visual" },
+                  { src: "/Graphics/R14.jpg", label: "R14 Draft" }
+                ].map((img, i) => (
+                  <motion.div 
+                    key={i}
+                    whileHover={{ y: -5 }}
+                    style={{textAlign: 'center'}}
+                  >
+                    <motion.img 
+                      src={img.src} 
+                      alt={`${img.label} Design Sample`}
+                      whileHover={{ scale: 1.05 }}
+                      style={{
+                        width: '100%',
+                        height: '140px',
+                        objectFit: 'cover',
+                        borderRadius: '12px',
+                        border: '2px solid rgba(232, 118, 2, 0.2)',
+                        cursor: 'pointer',
+                        boxShadow: '0 8px 15px rgba(0,0,0,0.05)'
+                      }}
+                      onClick={() => window.open(img.src, '_blank')}
+                    />
+                    <p style={{fontSize: '0.85rem', color: '#15400c', marginTop: '0.8rem', fontWeight: '600'}}>{img.label}</p>
+                  </motion.div>
+                ))}
               </div>
               
               {skill.works && (
                 <ul style={{listStyle: 'none', padding: 0}}>
                   {skill.works.map((work, idx) => (
-                    <li key={idx} style={{
-                      padding: '0.75rem',
-                      marginBottom: '0.5rem',
-                      background: '#f8f9fa',
-                      borderRadius: '8px',
-                      borderLeft: '4px solid #e87602'
-                    }}>
+                    <motion.li 
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 * idx }}
+                      style={{
+                        padding: '1.2rem',
+                        marginBottom: '0.8rem',
+                        background: '#f8f9fa',
+                        borderRadius: '12px',
+                        borderLeft: '5px solid #e87602',
+                        fontSize: '1.05rem',
+                        boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
+                      }}
+                    >
                       {work}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               )}
@@ -238,43 +182,57 @@ export default function SkillDetail({ skill, onClose }) {
           ) : (
             <ul style={{listStyle: 'none', padding: 0}}>
               {skill.works && skill.works.map((work, idx) => (
-                <li key={idx} style={{
-                  padding: '0.75rem',
-                  marginBottom: '0.5rem',
-                  background: '#f8f9fa',
-                  borderRadius: '8px',
-                  borderLeft: '4px solid #e87602'
-                }}>
+                <motion.li 
+                  key={idx}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 * idx }}
+                  style={{
+                    padding: '1.2rem',
+                    marginBottom: '0.8rem',
+                    background: '#f8f9fa',
+                    borderRadius: '12px',
+                    borderLeft: '5px solid #e87602',
+                    fontSize: '1.05rem',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
+                  }}
+                >
                   {work}
-                </li>
+                </motion.li>
               ))}
             </ul>
           )}
         </div>
 
-        <div>
-          <h3 style={{fontSize: '1.3rem', fontWeight: '600', color: '#e87602', marginBottom: '1rem'}}>
-            Technologies Used
+        <motion.div
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 1 }}
+           transition={{ delay: 0.5 }}
+        >
+          <h3 style={{fontSize: '1.4rem', fontWeight: '700', color: '#e87602', marginBottom: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+            <span>💻</span> Technologies Used
           </h3>
-          <div style={{display: 'flex', flexWrap: 'wrap', gap: '0.5rem'}}>
+          <div style={{display: 'flex', flexWrap: 'wrap', gap: '0.8rem'}}>
             {skill.technologies.map((tech, idx) => (
-              <span 
+              <motion.span 
                 key={idx}
+                whileHover={{ scale: 1.1, y: -2 }}
                 style={{
                   background: 'linear-gradient(135deg, #e87602 0%, #ff8c1a 100%)',
                   color: '#ffffff',
-                  padding: '0.5rem 1rem',
-                  borderRadius: '20px',
-                  fontSize: '0.9rem',
-                  fontWeight: '500'
+                  padding: '0.6rem 1.25rem',
+                  borderRadius: '30px',
+                  fontSize: '0.95rem',
+                  fontWeight: '600',
+                  boxShadow: '0 4px 12px rgba(232, 118, 2, 0.2)'
                 }}
               >
                 {tech}
-              </span>
+              </motion.span>
             ))}
           </div>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 }

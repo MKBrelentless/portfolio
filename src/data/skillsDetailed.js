@@ -1,54 +1,65 @@
 export const skillsDetailed = [
   {
     id: 1,
-    title: "Full Stack Development",
-    description: "End-to-end web application development using modern technologies like React, Node.js, and cloud platforms.",
+    title: "System Administration",
+    description: "Expert in managing complex server environments, cloud infrastructure, and enterprise systems. Specialized in ensuring high availability, security, and performance.",
+    icon: "⚙️",
+    works: [
+      "Cloud Server Management - AWS and Railway deployments",
+      "Database Administration - MySQL, MongoDB and PostgreSQL management",
+      "Performance Monitoring - Server scaling and optimization",
+      "Security Implementation - SSL certificates and authentication"
+    ],
+    technologies: ["Linux", "AWS", "Docker", "MongoDB", "PostgreSQL", "Nginx", "SSL/TLS"]
+  },
+  {
+    id: 2,
+    title: "Fullstack Javascript Development",
+    description: "Architecting scalable web applications using modern JavaScript ecosystems with React and Node.js.",
     icon: "💻",
     works: [
       "Smart Food Assistant - AI-powered food recommendation system",
       "Portfolio Website - Modern responsive design with React",
-      
+      "E-commerce Platform - Complete online shopping solution"
     ],
     technologies: ["React", "Node.js", "JavaScript", "HTML5", "CSS3"]
   },
   {
-    id: 2,
+    id: 3,
+    title: "Network Administration",
+    description: "Specialized in designing, implementing, and securing critical network infrastructures and security systems.",
+    icon: "🔗",
+    works: [
+      "Network Architecture Design - Scalable network infrastructure",
+      "CCTV Installation & Monitoring - Security camera systems setup",
+      "Network Security Implementation - Firewall and security protocols",
+      "Network Troubleshooting - Resolving connectivity issues"
+    ],
+    technologies: ["TCP/IP", "Routers", "Switches", "CCTV Systems", "Network Security"]
+  },
+  {
+    id: 4,
     title: "AI Integration",
-    description: "Implementing AI and machine learning solutions into web applications for enhanced user experiences.",
+    description: "Dedicated to bridging the gap between cutting-edge AI research and practical web application solutions.",
     icon: "🤖",
     works: [
       "Smart Food Assistant - Integrated AI for personalized recommendations",
       "Nutritional Analysis System - ML-powered dietary suggestions",
       "Chatbot Implementation - AI-driven user interactions"
     ],
-    technologies: ["Python for AI", "AI/ML Integration", "REST APIs"]
+    technologies: ["Python", "AI/ML Integration", "OpenAI API", "REST APIs"]
   },
   {
-    id: 3,
-    title: "Networking",
-    description: "Expert in network setup, configuration, and troubleshooting. I provide comprehensive networking solutions including CCTV installation and sell quality network equipment.",
-    icon: "🔗",
-    works: [
-      "Network Setup & Configuration - Complete LAN/WAN infrastructure setup",
-      "Network Troubleshooting - Diagnosing and resolving connectivity issues",
-      "CCTV Installation & Monitoring - Security camera systems setup and maintenance",
-      "Network Equipment Sales - Ethernet cables, routers, switches, and accessories",
-      "Network Security Implementation - Firewall configuration and security protocols",
-      "Wireless Network Setup - WiFi configuration and optimization"
-    ],
-    technologies: [ "Ethernet Cables", "Routers", "Switches", "CCTV Systems", "Network Security"]
-  },
-  {
-    id: 4,
-    title: "Graphics Design",
-    description: "Creating responsive, interactive user interfaces with modern frameworks and best practices.",
+    id: 5,
+    title: "Graphic Design",
+    description: "Creative visual storyteller focused on crafting compelling brand identities and intuitive user interfaces.",
     icon: "🎨",
     works: [
-           "I/UX Design - Modern web application interfaces",
-"Logo Design - Brand identity creation",
-"Marketing Materials - Digital promotional content",
-"Website Mockups - Visual design prototypes"
+      "UI/UX Design - Modern web application interfaces",
+      "Logo Design - Brand identity creation",
+      "Marketing Materials - Digital promotional content",
+      "Website Mockups - Visual design prototypes"
     ],
-    technologies: ["Adobe Photoshop", "Adobe illustrator", "Figma"]
+    technologies: ["Adobe Photoshop", "Adobe Illustrator", "Figma"]
   }
 ];
